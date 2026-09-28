@@ -5,143 +5,312 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2027 Election Agent System</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
 body{
-background:#f4f7f9;
-color:#222;
-}
-
-header{
-background:#006400;
+background:#0b1622;
 color:white;
-padding:18px;
-text-align:center;
-font-size:24px;
-font-weight:bold;
+overflow-x:hidden;
 }
 
+/* HERO */
 .hero{
-padding:40px 20px;
-text-align:center;
+height:100vh;
+background:
+linear-gradient(rgba(0,40,20,.72),rgba(0,15,35,.82)),
+url("assets/hero-election.jpg") center/cover no-repeat;
+display:flex;
+flex-direction:column;
 }
 
-.hero h1{
-font-size:34px;
-margin-bottom:15px;
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
 }
 
-.hero p{
+.logo{
+font-size:28px;
+font-weight:700;
+color:#7CFF8A;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-size:15px;
+}
+
+.hero-content{
+flex:1;
+display:flex;
+align-items:center;
+padding:0 8%;
+}
+
+.left{
+max-width:600px;
+}
+
+.badge{
+display:inline-block;
+padding:8px 16px;
+border:1px solid rgba(255,255,255,.3);
+border-radius:30px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(8px);
+margin-bottom:20px;
+font-size:14px;
+}
+
+.left h1{
+font-size:56px;
+line-height:1.05;
+margin-bottom:20px;
+}
+
+.left p{
 font-size:18px;
-color:#555;
-max-width:700px;
-margin:auto;
+color:#d8e3e8;
+line-height:1.7;
+margin-bottom:35px;
 }
 
 .buttons{
-margin-top:30px;
 display:flex;
-justify-content:center;
 gap:15px;
 flex-wrap:wrap;
 }
 
 .btn{
+padding:15px 30px;
+border-radius:50px;
+font-weight:600;
 text-decoration:none;
-padding:14px 24px;
-border-radius:8px;
-font-weight:bold;
-display:inline-block;
+transition:.3s;
 }
 
 .primary{
-background:#006400;
+background:#1DB954;
 color:white;
+}
+
+.primary:hover{
+transform:translateY(-3px);
+box-shadow:0 12px 30px rgba(29,185,84,.35);
 }
 
 .secondary{
-border:2px solid #006400;
-color:#006400;
+border:2px solid white;
+color:white;
 }
 
+.secondary:hover{
+background:white;
+color:#0b1622;
+}
+
+/* FLOATING PANEL */
+.panel{
+position:absolute;
+right:8%;
+top:25%;
+width:280px;
+padding:25px;
+border-radius:25px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.18);
+box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+
+.panel h3{
+margin-bottom:20px;
+}
+
+.stat{
+margin:18px 0;
+}
+
+.stat b{
+font-size:28px;
+color:#7CFF8A;
+display:block;
+}
+
+/* FEATURES */
 .features{
-padding:40px 20px;
+background:#fff;
+color:#222;
+padding:80px 8%;
+}
+
+.section-title{
+text-align:center;
+font-size:36px;
+margin-bottom:50px;
+color:#114b2d;
+}
+
+.grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-max-width:1100px;
-margin:auto;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
 }
 
 .card{
+padding:30px;
+border-radius:20px;
 background:white;
-padding:20px;
-border-radius:12px;
-box-shadow:0 3px 10px rgba(0,0,0,.1);
-text-align:center;
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.icon{
+font-size:34px;
+margin-bottom:15px;
 }
 
 .card h3{
-margin:10px 0;
-color:#006400;
+margin-bottom:12px;
+color:#114b2d;
 }
 
 footer{
-margin-top:40px;
-background:#222;
-color:white;
+padding:25px;
 text-align:center;
-padding:15px;
+background:#08131d;
+color:#9fb4c4;
+}
+
+@media(max-width:900px){
+
+.panel{
+display:none;
+}
+
+.left h1{
+font-size:40px;
+}
+
+.hero-content{
+text-align:center;
+justify-content:center;
+}
+
+.buttons{
+justify-content:center;
+}
 }
 </style>
-
 </head>
 <body>
 
-<header>
-2027 Election Agent System
-</header>
-
 <section class="hero">
-<h1>Secure. Verify. Report.</h1>
+
+<nav>
+<div class="logo">Agent2027</div>
+<div>
+<a href="login.html">Login</a>
+<a href="register.html">Register</a>
+</div>
+</nav>
+
+<div class="hero-content">
+
+<div class="left">
+
+<div class="badge">🇰🇪 Kenya General Election 2027</div>
+
+<h1>Every Polling Station. Live.</h1>
+
 <p>
-A real-time election management platform for polling station agents,
-supervisors and campaign headquarters across Kenya.
+A secure command platform that tracks agents, verifies Form 34A,
+reports incidents instantly and releases payments after approval.
 </p>
 
 <div class="buttons">
 <a href="login.html" class="btn primary">Agent Login</a>
-<a href="register.html" class="btn secondary">Register Agent</a>
+<a href="register.html" class="btn secondary">Become an Agent</a>
 </div>
+
+</div>
+
+<div class="panel">
+
+<h3>Live Command Centre</h3>
+
+<div class="stat">
+<b>46,000+</b>
+Polling Stations
+</div>
+
+<div class="stat">
+<b>290</b>
+Constituencies
+</div>
+
+<div class="stat">
+<b>47</b>
+Counties
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <section class="features">
 
+<h2 class="section-title">Mission-Critical Features</h2>
+
+<div class="grid">
+
 <div class="card">
+<div class="icon">📍</div>
 <h3>GPS Check-In</h3>
-<p>Confirm arrival at the assigned polling station.</p>
+<p>Confirm agents arrive at their assigned polling station.</p>
 </div>
 
 <div class="card">
-<h3>Form Upload</h3>
-<p>Upload Form 34A and supporting evidence securely.</p>
+<div class="icon">📄</div>
+<h3>Form 34A Upload</h3>
+<p>Capture and submit official results securely.</p>
 </div>
 
 <div class="card">
+<div class="icon">🤖</div>
 <h3>AI Verification</h3>
-<p>Verify documents before supervisor approval.</p>
+<p>Validate documents before supervisor approval.</p>
 </div>
 
 <div class="card">
-<h3>Automatic Payment</h3>
-<p>Release M-Pesa payments after successful verification.</p>
+<div class="icon">💰</div>
+<h3>M-Pesa Payment</h3>
+<p>Release payments automatically after verification.</p>
+</div>
+
 </div>
 
 </section>
 
 <footer>
-© 2027 Election Agent System
+© 2027 Election Agent System • Built for Kenya
 </footer>
 
 </body>
