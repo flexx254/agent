@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Administrator Login | Agent2027</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#07151f;
+    color:white;
+    display:flex;
+    flex-direction:column;
+}
+
+/* BACKGROUND */
+
+.page{
+    min-height:100vh;
+    position:relative;
+    background:
+        linear-gradient(
+            rgba(2,30,20,.78),
+            rgba(3,15,27,.94)
+        ),
+        url("assets/admin-bg.jpg") center/cover no-repeat;
+}
+
+/* HEADER */
+
+header{
+    height:78px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 7%;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    background:rgba(0,0,0,.15);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:700;
+    color:#7CFF8A;
+    letter-spacing:.5px;
+}
+
+.logo span{
+    color:white;
+    font-weight:400;
+}
+
+.home-link{
+    color:#dce8e2;
+    text-decoration:none;
+    font-size:14px;
+    padding:10px 18px;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:25px;
+    transition:.3s;
+}
+
+.home-link:hover{
+    background:white;
+    color:#07151f;
+}
+
+/* MAIN */
+
+.main{
+    min-height:calc(100vh - 78px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
+}
+
+/* LOGIN CARD */
+
+.login-card{
+    width:100%;
+    max-width:460px;
+    padding:42px;
+    border-radius:25px;
+
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.18);
+
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45);
+}
+
+/* ICON */
+
+.security-icon{
+    width:68px;
+    height:68px;
+    border-radius:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:30px;
+
+    background:rgba(124,255,138,.12);
+    border:1px solid rgba(124,255,138,.25);
+
+    margin-bottom:25px;
+}
+
+/* TEXT */
+
+.login-card h1{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    color:#b9c9c3;
+    font-size:14px;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+/* FORM */
+
+.form-group{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-size:13px;
+    color:#d9e5df;
+}
+
+input{
+    width:100%;
+    padding:15px 16px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,.18);
+
+    background:rgba(0,0,0,.22);
+
+    color:white;
+
+    outline:none;
+
+    font-size:14px;
+
+    transition:.3s;
+}
+
+input::placeholder{
+    color:#82938d;
+}
+
+input:focus{
+    border-color:#7CFF8A;
+    box-shadow:0 0 0 3px rgba(124,255,138,.08);
+}
+
+/* PASSWORD */
+
+.password-wrapper{
+    position:relative;
+}
+
+.password-wrapper input{
+    padding-right:70px;
+}
+
+.show-password{
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+
+    background:none;
+    border:none;
+
+    color:#9fb0aa;
+
+    cursor:pointer;
+    font-size:12px;
+}
+
+/* OPTIONS */
+
+.options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:5px 0 25px;
+    font-size:12px;
+}
+
+.remember{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    color:#b9c9c3;
+}
+
+.remember input{
+    width:auto;
+    accent-color:#1DB954;
+}
+
+.forgot{
+    color:#7CFF8A;
+    text-decoration:none;
+}
+
+.forgot:hover{
+    text-decoration:underline;
+}
+
+/* BUTTON */
+
+.login-btn{
+    width:100%;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:13px;
+
+    background:#1DB954;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.login-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(29,185,84,.28);
+}
+
+.login-btn:active{
+    transform:translateY(0);
+}
+
+/* SECURITY NOTICE */
+
+.security-notice{
+    margin-top:25px;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    background:rgba(0,0,0,.18);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+
+    gap:10px;
+
+    color:#aebdb7;
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+.security-notice strong{
+    color:#7CFF8A;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+
+    padding:20px;
+
+    color:#71837c;
+
+    font-size:11px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    header{
+        padding:0 20px;
+        height:70px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .home-link{
+        padding:8px 13px;
+        font-size:12px;
+    }
+
+    .main{
+        padding:25px 15px;
+    }
+
+    .login-card{
+        padding:30px 22px;
+        border-radius:20px;
+    }
+
+    .login-card h1{
+        font-size:27px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+<header>
+
+    <div class="logo">
+        Agent<span>2027</span>
+    </div>
+
+    <a href="index.html" class="home-link">
+        ← Home
+    </a>
+
+</header>
+
+
+<main class="main">
+
+    <div class="login-card">
+
+        <div class="security-icon">
+            🛡️
+        </div>
+
+        <h1>Administrator</h1>
+
+        <p class="subtitle">
+            Secure access to the Agent2027 command centre.
+            Only authorized administrators can access this portal.
+        </p>
+
+
+        <form id="adminLoginForm">
+
+            <div class="form-group">
+
+                <label for="email">
+                    Administrator Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="admin@example.com"
+                    autocomplete="username"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="show-password"
+                        onclick="togglePassword()"
+                    >
+                        Show
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="options">
+
+                <label class="remember">
+
+                    <input type="checkbox" id="remember">
+
+                    Remember this device
+
+                </label>
+
+                <a href="#" class="forgot">
+                    Forgot password?
+                </a>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="login-btn"
+            >
+                Sign In to Command Centre
+            </button>
+
+        </form>
+
+
+        <div class="security-notice">
+
+            <span>🔐</span>
+
+            <div>
+                <strong>Protected Area</strong><br>
+
+                This portal is restricted to authorized
+                administrators. All administrative activity
+                may be recorded for security and audit purposes.
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+    © 2027 Agent2027 • Administrator Portal
+</footer>
+
+</div>
+
+
+<script>
+
+function togglePassword(){
+
+    const password =
+        document.getElementById("password");
+
+    const button =
+        document.querySelector(".show-password");
+
+    if(password.type === "password"){
+
+        password.type = "text";
+        button.textContent = "Hide";
+
+    }else{
+
+        password.type = "password";
+        button.textContent = "Show";
+
+    }
+
+}
+
+
+document
+.getElementById("adminLoginForm")
+.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    /*
+        Backend authentication will be connected here.
+
+        Example later:
+
+        fetch("/admin/login", {
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value
+            })
+        })
+    */
+
+    alert("Administrator authentication will be connected to the backend.");
+
+});
+
+</script>
+
+</body>
+</html>
+
+Image
+
+Add:
+
+assets/
+   admin-bg.jpg
+
+For this page, I'd use a dark aerial Nairobi/city image with subtle election-operation imagery, rather than a picture of a politician. That keeps the platform focused on the operational system.
+
+The important part is that there is no administrator registration button. Administrator accounts will be created/managed separately, so the public cannot create an admin account.
+
+Next page should be "admin-dashboard.html" — the actual command centre, where the administrator can see Pending Agent Requests → Approve/Reject → Generate Agent Invitation → Assign Polling Station.
